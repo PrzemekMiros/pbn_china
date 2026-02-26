@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 import { slugifyTitle } from "../../lib/slugifyTitle";
 
-const TARGET_CATEGORY = "Warsztat i tuning";
-const TARGET_CATEGORY_SLUGS = ["warsztat-i-tuning", "uklad-nerwowy"];
+const TARGET_CATEGORY = "poradniki i technika jazdy";
+const TARGET_CATEGORY_SLUGS = ["poradniki-i-technika-jazdy"];
 const imageEntries = import.meta.glob("/src/content/artykuly/img/**/*", { eager: true });
 
 const resolveArticleImage = (path) => {

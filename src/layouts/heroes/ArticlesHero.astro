@@ -2,7 +2,7 @@
 
 import { Image } from "astro:assets";
 
-const { title, lead, tags, date, headerImage } = Astro.props;
+const { title, lead, tags, date, headerImage, readingTime } = Astro.props;
 const isHeaderAsset = !!headerImage && typeof headerImage === "object" && "src" in headerImage;
 const headerSrc = !isHeaderAsset ? headerImage : null;
 const formattedDate = date ? new Date(date).toLocaleDateString('pl-PL', {
@@ -13,16 +13,15 @@ const formattedDate = date ? new Date(date).toLocaleDateString('pl-PL', {
 ---
 
   
-<section class="relative pt-28 pb-12 md:pt-52 md:pb-20">
+<section class="relative pt-28 pb-12 md:pt-40 md:pb-8 border-b border-gray-300">
   
-  <div class="w-screen ml-[calc(50%-50vw)] pointer-events-none absolute inset-0">
-   <div class="pointer-events-none absolute inset-0 overflow-hidden">
-  {headerImage ? (
+  <div class="relative grid gap-10">
+      {headerImage ? (
     isHeaderAsset ? (
       <Image
         src={headerImage}
         alt=""
-        class="absolute inset-0 h-full w-full object-cover"
+        class="aspect-[8/2] w-full object-cover object-top rounded-sm"
         sizes="100vw"
         widths={[640, 960, 1280, 1600, 1920]}
         loading="lazy"
@@ -31,7 +30,7 @@ const formattedDate = date ? new Date(date).toLocaleDateString('pl-PL', {
       />
     ) : (
       <img
-        class="absolute inset-0 h-full w-full object-cover"
+        class="h-full w-full"
         src={headerSrc}
         sizes="100vw"
         loading="lazy"
@@ -41,43 +40,39 @@ const formattedDate = date ? new Date(date).toLocaleDateString('pl-PL', {
       />
     )
   ) : null}
-   </div>
-   <div class="absolute inset-0 bg-black/60"></div>
-  </div>
-  <div class="relative grid gap-10 lg:grid-cols-[250px_minmax(0,1fr)_280px]">
-    <div class="hidden lg:block"></div>
-    <div class="space-y-4">
-        <div class="text-[8px] md:text-[10px] uppercase tracking-[0.1em] text-white/70 mb-3 md:mb-6 font-semibold">
+    <div class="space-y-2 max-w-6xl">
+        <div class="text-[8px] md:text-[10px] uppercase tracking-[0.1em] text-black/70 mb-3 md:mb-6 font-semibold">
         <span>Główna</span>
         <span class="text-[var(--accent)]"> > </span>
-        <span class="text-white/90"> {title}</span>
+        <span class="textblack/90"> {title}</span>
       </div>
-    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white" data-pagefind-body>
+    <h1 class="text-2xl sm:text-3xl md:text-4xl text-black lg:text-5xl font-semibold" data-pagefind-body>
       {title}
     </h1>
 
   <div class="max-w-2xl">
 
-  <div class="flex flex-wrap gap-x-8 gap-y-2 pt-6 mt-6 border-t border-white/25 font-semibold text-[8px] md:text-[10px] tracking-[0.15em] uppercase text-white/70">
+  <div class="flex flex-wrap gap-x-8 gap-y-2 mt-8 border-t border-white/25 font-semibold text-[8px] md:text-[10px] tracking-[0.15em] uppercase text-black/70">
     {tags && tags.length > 0 && (
       <div>
-        Kategoria <span class="text-[var(--accent)]"> > </span> <span class="text-white/90">{tags[0]}</span>
+        Kategoria <span class="text-[var(--accent)]"> > </span> <span class="text-black/90">{tags[0]}</span>
       </div>
     )}
     {formattedDate && (
       <div class="">
-        Opublikowano <span class="text-[var(--accent)]"> > </span> <span class="text-white/90">{formattedDate}</span>
+        Opublikowano <span class="text-[var(--accent)]"> > </span> <span class="text-black/90">{formattedDate}</span>
       </div>
     )}
-    <!--
-    <div class="text-gray-400">
-      4 minuty czytania
-    </div>
-     -->
+
+    {readingTime ? (
+      <div class="text-gray-400">
+        {readingTime}
+      </div>
+    ) : null}
+
   </div>
 </div>
 
     </div>
-    <div class="hidden lg:block"></div>
   </div>
 </section>

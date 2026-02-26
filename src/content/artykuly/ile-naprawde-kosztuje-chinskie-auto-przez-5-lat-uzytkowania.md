@@ -36,6 +36,10 @@ Całkowity koszt finansowania może podnieść cenę pojazdu o 18 000–28 000 z
 
 Psychologicznie rata 1 800–2 200 zł miesięcznie wydaje się „akceptowalna”, ale w ujęciu 60 miesięcy oznacza to ponad 100 000 zł wypływu środków.
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-3.jpg" alt="Baner reklamowy ad-3" />
+</div>
+
 ## Utrata wartości – niewidzialny koszt największego kalibru
 
 Deprecjacja to najczęściej największy wydatek związany z autem.
@@ -116,6 +120,11 @@ Dla auta wartego 170 000 zł:
 
 Wysokie koszty napraw blacharskich (szczególnie w elektrykach z drogimi czujnikami ADAS) podnoszą cenę polis.
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-4.png" alt="Baner reklamowy ad-4" />
+</div>
+
+
 ## Biologiczna i psychologiczna strona kosztów
 
 Decyzje zakupowe nie są czysto matematyczne. Z punktu widzenia psychologii behawioralnej działa tu efekt nowości i technologicznego prestiżu.
@@ -139,6 +148,11 @@ Dla osób pracujących zdalnie lub aktywnych outdoorowo elektryczny SUV może za
 W takim scenariuszu korzyści wykraczają poza transport – auto staje się narzędziem pracy i elementem stylu życia.
 
 Ekonomicznie trudno to wycenić, ale w niektórych przypadkach realnie obniża koszty prowadzenia działalności.
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-5.png" alt="Baner reklamowy ad-5" />
+</div>
+
 
 ## Podsumowanie pięciu lat – konkretne liczby
 

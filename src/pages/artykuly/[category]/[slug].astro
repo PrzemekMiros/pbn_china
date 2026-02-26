@@ -1,11 +1,45 @@
 ---
 import { Image } from "astro:assets";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ArticlesHero from "../../../layouts/heroes/ArticlesHero.astro";
 import settings from "../../../content/ustawienia.json";
 import { slugifyTitle } from "../../../lib/slugifyTitle";
 
 export const prerender = true;
+
+const projectRoot = fileURLToPath(new URL("../../../..", import.meta.url));
+const toFsPath = (file) => {
+  if (file.startsWith("/src/")) {
+    return path.join(projectRoot, file.slice(1));
+  }
+  return fileURLToPath(new URL(file, import.meta.url));
+};
+
+const stripFrontmatter = (content) => content.replace(/^---[\s\S]*?---\s*/u, "");
+const stripCodeBlocks = (content) => content.replace(/```[\s\S]*?```/g, " ");
+const stripInlineCode = (content) => content.replace(/`[^`]*`/g, " ");
+const stripHtml = (content) => content.replace(/<[^>]+>/g, " ");
+const stripLinks = (content) => content.replace(/!?\[[^\]]*]\([^)]+\)/g, " ");
+const stripRefLinks = (content) => content.replace(/!?\[[^\]]*]\[[^\]]*]/g, " ");
+
+const countWords = (content) => {
+  const cleaned = stripRefLinks(
+    stripLinks(stripHtml(stripInlineCode(stripCodeBlocks(stripFrontmatter(content)))))
+  )
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+  if (!cleaned) return 0;
+  return cleaned.split(/\s+/).filter(Boolean).length;
+};
+
+const formatReadingTime = (words, wpm = 200) => {
+  const minutes = Math.max(1, Math.ceil(words / wpm));
+  const label = minutes === 1 ? "minuta" : minutes >= 2 && minutes <= 4 ? "minuty" : "minut";
+  return `${minutes} ${label} czytania`;
+};
 
 const imageEntries = import.meta.glob("/src/content/artykuly/img/**/*", { eager: true });
 const resolveArticleImage = (path) => {
@@ -61,10 +95,17 @@ export async function getStaticPaths() {
       const entryHeadings = typeof entry.getHeadings === "function"
         ? await entry.getHeadings()
         : entry.headings ?? [];
+      let readingTime = null;
+      try {
+        const raw = readFileSync(toFsPath(file), "utf-8");
+        readingTime = formatReadingTime(countWords(raw));
+      } catch {
+        readingTime = null;
+      }
       return {
         params: { category: categorySlug, slug },
         props: {
-          artykul: { slug, categorySlug, ...entry.frontmatter },
+          artykul: { slug, categorySlug, readingTime, ...entry.frontmatter },
           Content: entry.Content,
           headings: entryHeadings,
         },
@@ -75,6 +116,7 @@ export async function getStaticPaths() {
 }
 
 const { artykul, Content, headings } = Astro.props;
+const readingTime = artykul?.readingTime ?? null;
 const allArticleEntries = import.meta.glob("../../../content/artykuly/**/*.md", { eager: true });
 const allArticles = Object.entries(allArticleEntries).map(([file, entry]) => {
   const slugPath = getSlugPathFromFile(file);
@@ -153,9 +195,10 @@ if (!artykul) {
     tags={artykul.tags}
     date={artykul.date}
     headerImage={headerImage}
+    readingTime={readingTime}
   />
   <article
-    class="mb-18 pt-20 z-50"
+    class="pt-8 z-50"
     itemscope
     itemtype="https://schema.org/BlogPosting"
   >
@@ -173,7 +216,7 @@ if (!artykul) {
       <meta itemprop="name" content={siteName} />
       {siteLogo ? <meta itemprop="logo" content={siteLogo} /> : null}
     </div>
-    <div class="grid gap-10 grid-cols-1 lg:grid-cols-[250px_minmax(0,1fr)_280px]">
+    <div class="grid gap-12 grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)_300px]">
       <aside class="hidden lg:block mt-2">
         <div class="sticky top-38 space-y-4">
           <h3 class="text-xs font-semibold uppercase tracking-[0.2em] mb-6 border-l-2 border-[var(--accent)] pl-4">Spis treści</h3>
@@ -197,6 +240,9 @@ if (!artykul) {
           ) : (
             <p class="text-xs text-[var(--muted)]">Brak spisu treści</p>
           )}
+          <div class="advise-wrap mt-8">
+              <img src="/src/assets/images/advertise/ad-1.jpg">
+          </div>
         </div>
       </aside>
 
@@ -273,7 +319,7 @@ if (!artykul) {
       </div>
 
       <aside class="space-y-6 mt-2">
-        <div class="sticky top-38 space-y-5">
+        <div class="space-y-5">
           <div class="flex items-center justify-between mb-6">
             <h3 class="text-xs font-semibold uppercase tracking-[0.2em] border-l-2 border-[var(--accent)] pl-4">Kategorie</h3>
             <a href="/artykuly/" class="text-[11px] uppercase tracking-widest text-[var(--accent)] hover:text-[var(--accent)]">Wszystkie</a>
@@ -295,6 +341,9 @@ if (!artykul) {
             <p class="text-sm text-[var(--muted)]">Brak kategorii</p>
           )}
         </div>
+          <div class="sticky top-38 advise-wrap mt-8">
+              <img src="/src/assets/images/advertise/ad-2.jpg">
+          </div>
       </aside>
     </div>
   </article>

@@ -61,6 +61,10 @@ Elementy wpływające na rozstaw kół są szczególnie wrażliwe z punktu widze
 
 Należy pamiętać, że dystanse kół, choć popularne, formalnie wymagają zgodności z homologacją producenta felgi lub pojazdu. Brak dokumentacji może skutkować negatywnym wynikiem badania technicznego.
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-3.jpg" alt="Baner reklamowy ad-3" />
+</div>
+
 ## Wyciągarka, zderzaki stalowe i snorkel
 
 Offroad bez wyciągarki? Dla wielu to nielogiczne. Jednak ingerencja w przednią część pojazdu wymaga ostrożności.
@@ -108,6 +112,11 @@ W przypadku silników benzynowych zmiany w układzie wydechowym również nie mo
 Część właścicieli decyduje się na przerejestrowanie pojazdu jako specjalny lub kempingowy. Taka zmiana umożliwia legalne wprowadzenie pewnych modyfikacji, jednak wymaga spełnienia szczegółowych warunków zabudowy i wyposażenia.
 
 W kontekście aut wyprawowych rośnie zainteresowanie rejestracją jako pojazd specjalny – jednak procedura jest kosztowna i czasochłonna.
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-4.png" alt="Baner reklamowy ad-4" />
+</div>
+
 
 ## Kontrole drogowe w 2026 roku
 
@@ -161,6 +170,11 @@ Najrozsądniejsze podejście obejmuje:
 - unikanie ingerencji w systemy bezpieczeństwa.
 
 Profesjonalnie wykonany projekt offroadowy może być w pełni zgodny z prawem, ale wymaga planowania i znajomości przepisów.
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-5.png" alt="Baner reklamowy ad-5" />
+</div>
+
 
 ## Podsumowanie
 

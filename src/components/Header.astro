@@ -1,5 +1,5 @@
 ﻿---
-import logo from "../assets/images/global/ore-offroad-logo.png";
+import logo from "../assets/images/global/logo.png";
 import Search from "astro-pagefind/components/Search";
 import { slugifyTitle } from "../lib/slugifyTitle";
 const { settings } = Astro.props;
@@ -9,15 +9,15 @@ const isActive = (href) =>
 
 const navItems = [
   {
-    href: "/aktualnosci-i-rynek/",
-    label: "Aktualnosci i rynek",
+    href: "/porownywarka/",
+    label: "Porównywarka",
     description: "Nowosci z branzy 4x4 i offroad.",
     columns: [
       {
         title: "Co sledzic",
         links: [
-          { href: "/aktualnosci-i-rynek/", label: "Wiadomosci", meta: "Premiery i trendy" },
-          { href: "/artykuly/", label: "Najnowsze artykuly", meta: "Pelna lista wpisow" },
+          { href: "/aktualnosci-i-rynek/", label: "Wiadomosci", meta: "Porównywarka" },
+          { href: "/artykuly/", label: "Najnowsze artykuly", meta: "Aktualności" },
           { href: "/tags/", label: "Tagi", meta: "Szybkie filtrowanie tematow" },
         ],
       },
@@ -38,8 +38,8 @@ const navItems = [
     },
   },
   {
-    href: "/samochody-i-testy/",
-    label: "Samochody i testy",
+    href: "/testy-i-opinie/",
+    label: "Testy i opinie",
     description: "Testy aut, porownania i realne wnioski.",
     columns: [
       {
@@ -67,8 +67,8 @@ const navItems = [
     },
   },
   {
-    href: "/warsztat-i-tuning/",
-    label: "Warsztat i tuning",
+    href: "/cenniki-i-koszty/",
+    label: "Cenniki i koszty",
     description: "Modyfikacje, setup i serwis terenowy.",
     columns: [
       {
@@ -125,8 +125,8 @@ const navItems = [
     },
   },
   {
-    href: "/turystyka-i-wyprawy/",
-    label: "Turystyka i wyprawy",
+    href: "/producenci/",
+    label: "Producenci",
     description: "Planowanie tras i wypraw offroad.",
     columns: [
       {
@@ -151,35 +151,6 @@ const navItems = [
       text: "Szkic trasy, sprzetu i planu awaryjnego.",
       href: "/turystyka-i-wyprawy/",
       cta: "Zobacz inspiracje",
-    },
-  },
-  {
-    href: "/sport-i-wydarzenia/",
-    label: "Sport i wydarzenia",
-    description: "Relacje z eventow i motorsportu terenowego.",
-    columns: [
-      {
-        title: "Na biezaco",
-        links: [
-          { href: "/sport-i-wydarzenia/", label: "Relacje i wyniki", meta: "Najwazniejsze wydarzenia" },
-          { href: "/artykuly/", label: "Analizy i komentarze", meta: "Szerszy kontekst startow" },
-          { href: "/tags/", label: "Tagi sportowe", meta: "Serie, rundy i zespoly" },
-        ],
-      },
-      {
-        title: "Pozostale",
-        links: [
-          { href: "/", label: "Start", meta: "Powrot do strony glownej" },
-          { href: "/polityka/", label: "Polityka serwisu", meta: "Zasady publikacji" },
-        ],
-      },
-    ],
-    featured: {
-      eyebrow: "Eventy",
-      title: "Kalendarz sezonu",
-      text: "Szybki podglad wydarzen i tego, co warto obserwowac.",
-      href: "/sport-i-wydarzenia/",
-      cta: "Przejdz do wydarzen",
     },
   },
 ];
@@ -249,7 +220,7 @@ const megaDefaultImage = "/content/media/596544842_4121024138044289_791373069583
 const linkClass = (href) =>
   isActive(href)
     ? "px-1 py-2.5 text-black no-underline transition"
-    : "px-1 py-2.5 text-black/70 no-underline transition hover:text-black";
+    : "px-1 py-2.5 text-black/90 no-underline transition hover:text-black";
 ---
 
 <header class="fixed left-0 right-0 top-0 z-500 bg-white/95">
@@ -257,7 +228,7 @@ const linkClass = (href) =>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 space-between items-center py-2">
       <div>
         <a href="/" class="text-xl font-semibold tracking-tighter text-black no-underline" aria-label="Logo">
-          <img src={logo.src} class="w-24" width="294" height="190" alt="Logo Offroad" />
+          <img src={logo.src} class="w-42" width="350" height="102" alt="Logo Offroad" />
         </a>
       </div>
       <div class="hidden md:flex items-center">
@@ -313,7 +284,7 @@ const linkClass = (href) =>
             return (
               <div class="mega-item" data-mega-item>
                 <a
-                  class={`${linkClass(item.href)} mega-link text-[12px] uppercase font-semibold tracking-[0.05em] transition-colors hover:text-black`}
+                  class={`${linkClass(item.href)} mega-link text-[11px] uppercase font-semibold tracking-[0.15em] transition-colors hover:text-black`}
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   data-mega-trigger

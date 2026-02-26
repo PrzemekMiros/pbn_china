@@ -33,8 +33,8 @@ const getArticleSlug = (slugPath) => {
 };
 const normalizeCategories = (category) =>
   Array.isArray(category) ? category : category ? [category] : [];
-const TARGET_CATEGORY = "Poradniki i technika jazdy";
-const TARGET_CATEGORY_SLUGS = ["poradniki-i-technika-jazdy", "sen-i-regeneracja"];
+const TARGET_CATEGORY = "Producenci";
+const TARGET_CATEGORY_SLUGS = ["poradniki-i-technika-jazdy"];
 
 const posts = Object.entries(entries)
   .map(([file, entry]) => {

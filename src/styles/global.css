@@ -37,8 +37,8 @@
 }
 
 :root {
-  --accent: #00318b;
-  --accent2: #ff8000;
+  --accent: #f35500;
+  --accent2: #22e243;
   --surface: #ffffff;
   --surface-muted: #f7f5f2;
   --bg: #ffffff;
@@ -71,10 +71,15 @@ h6 {
   font-family: "Teco", sans-serif;
 }
 
-#article-content ul,
 #article-content ol {
-  margin: 1rem 0;
+  margin: 1rem 0 1rem 1rem;
   padding-left: 1rem;
+  list-style-position: outside;
+}
+
+#article-content ul {
+  margin: 1rem 0 1rem 1rem;
+  padding-left: 0rem;
   list-style-position: outside;
 }
 

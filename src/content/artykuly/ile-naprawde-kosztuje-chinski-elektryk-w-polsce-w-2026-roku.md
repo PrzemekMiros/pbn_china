@@ -11,6 +11,7 @@ Chińskie auta elektryczne przestały być ciekawostką z targów motoryzacyjnyc
 
 Cena katalogowa to tylko wierzchołek finansowej góry lodowej. Poniżej prześwietlamy pełny koszt: od zakupu, przez ubezpieczenie i ładowanie, po utratę wartości i potencjalne serwisowe niespodzianki.
 
+
 ## Cena zakupu – ile trzeba wyłożyć na start
 
 W pierwszym kwartale 2026 roku ceny chińskich elektryków w Polsce kształtują się w następujących widełkach:
@@ -99,6 +100,10 @@ W praktyce pierwsze 3–4 lata użytkowania są stosunkowo tanie. Prawdziwą nie
 
 ---
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-3.jpg" alt="Baner reklamowy ad-3" />
+</div>
+
 ## Ubezpieczenie – zaskakujący składnik budżetu
 
 Chińskie auta elektryczne mają dwa „problemy” z perspektywy ubezpieczyciela:
@@ -111,6 +116,11 @@ OC + AC dla kompaktowego SUV-a o wartości 140 000 zł to obecnie 4 000–6 500 
 To aspekt, który często umyka w kalkulacjach. W pierwszym roku różnica między autem spalinowym a elektrycznym może zostać częściowo „zjedzona” przez polisę.
 
 ---
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-4.png" alt="Baner reklamowy ad-4" />
+</div>
+
 
 ## Utrata wartości – największy koszt długoterminowy
 
@@ -195,6 +205,11 @@ Ekonomia elektromobilności to nie tylko arkusz kalkulacyjny. To również zmian
 Dla jednych będzie to finansowy strzał w dziesiątkę. Dla innych – eksperyment wymagający odwagi.
 
 ---
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-5.png" alt="Baner reklamowy ad-5" />
+</div>
+
 
 ## Źródła
 

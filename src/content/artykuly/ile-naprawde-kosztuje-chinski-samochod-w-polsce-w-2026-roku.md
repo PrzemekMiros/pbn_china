@@ -45,6 +45,10 @@ Coraz popularniejszy w miastach. Klienci traktują auto jak usługę mobilności
 
 **Średni koszt finansowania pojazdu o wartości 120 000 zł przy 20% wpłacie własnej na 4 lata wynosi w 2026 roku około 25 000–35 000 zł łącznie w odsetkach i opłatach.**
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-3.jpg" alt="Baner reklamowy ad-3" />
+</div>
+
 ## Ubezpieczenie – temat, o którym mówi się za mało
 
 Wysokość składki zależy od:
@@ -104,6 +108,11 @@ Dla auta kupionego za 130 000 zł oznacza to możliwą stratę 45 000 – 70 000
 
 Psychologicznie użytkownik odczuwa ten koszt dopiero przy sprzedaży. W trakcie eksploatacji pozostaje on „niewidzialny”, ale ekonomicznie jest największy.
 
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-4.png" alt="Baner reklamowy ad-4" />
+</div>
+
+
 ## Styl życia a realne oszczędności
 
 Koszt samochodu to nie tylko rachunek księgowy. To również wpływ na codzienne funkcjonowanie.
@@ -148,6 +157,11 @@ Jeśli priorytetem jest wysoki poziom wyposażenia w niskiej cenie początkowej 
 Jeśli kluczowe jest bezpieczeństwo wartości rezydualnej i przewidywalność rynku wtórnego — przewagę nadal mają producenci obecni w Europie od dekad.
 
 Z ekonomicznego punktu widzenia największą przewagą modeli elektrycznych pozostaje niski koszt energii i serwisu. Największym ryzykiem — niepewność wartości rezydualnej.
+
+<div class="ad-banner">
+  <img src="/src/assets/images/advertise/ad-5.png" alt="Baner reklamowy ad-5" />
+</div>
+
 
 ## Podsumowanie
 
