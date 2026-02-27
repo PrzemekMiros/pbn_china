@@ -78,8 +78,8 @@ const ogImageUrl = site ? new URL(processedOgImage.src, site).toString() : proce
       <Header settings={settings} logoAsset={logoAsset} />
       {showHero && title ? <PageHero title={title} lead={description} meta={heroMeta} /> : null}
       <slot />
-      <Footer/>
     </main>
+    <Footer/>
     <script is:inline>
       const applyBlurLazy = () => {
         document.querySelectorAll("main img").forEach((img) => {

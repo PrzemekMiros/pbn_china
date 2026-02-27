@@ -12,6 +12,9 @@ export const prerender = true;
 
 const projectRoot = fileURLToPath(new URL("../../../..", import.meta.url));
 const toFsPath = (file) => {
+  if (path.isAbsolute(file)) {
+    return file;
+  }
   if (file.startsWith("/src/")) {
     return path.join(projectRoot, file.slice(1));
   }
@@ -92,6 +95,7 @@ export async function getStaticPaths() {
       const slugPath = getSlugPathFromFileLocal(file);
       const categorySlug = getCategorySlugLocal(entry.frontmatter ?? {}, slugPath);
       const slug = getArticleSlugLocal(slugPath);
+      const frontmatter = entry.frontmatter ?? {};
       const entryHeadings = typeof entry.getHeadings === "function"
         ? await entry.getHeadings()
         : entry.headings ?? [];
@@ -102,10 +106,26 @@ export async function getStaticPaths() {
       } catch {
         readingTime = null;
       }
+      if (!readingTime) {
+        try {
+          if (typeof entry.rawContent === "function") {
+            const raw = await entry.rawContent();
+            readingTime = raw ? formatReadingTime(countWords(raw)) : null;
+          } else if (typeof entry.rawContent === "string") {
+            readingTime = formatReadingTime(countWords(entry.rawContent));
+          } else if (typeof entry.compiledContent === "function") {
+            const raw = await entry.compiledContent();
+            readingTime = raw ? formatReadingTime(countWords(raw)) : null;
+          }
+        } catch {
+          readingTime = null;
+        }
+      }
+      const resolvedReadingTime = frontmatter.readingTime ?? readingTime;
       return {
         params: { category: categorySlug, slug },
         props: {
-          artykul: { slug, categorySlug, readingTime, ...entry.frontmatter },
+          artykul: { slug, categorySlug, ...frontmatter, readingTime: resolvedReadingTime },
           Content: entry.Content,
           headings: entryHeadings,
         },
@@ -116,8 +136,25 @@ export async function getStaticPaths() {
 }
 
 const { artykul, Content, headings } = Astro.props;
-const readingTime = artykul?.readingTime ?? null;
 const allArticleEntries = import.meta.glob("../../../content/artykuly/**/*.md", { eager: true });
+let readingTime = artykul?.readingTime ?? null;
+if (!readingTime && artykul?.slug) {
+  const matchedEntry = Object.entries(allArticleEntries).find(([file, entry]) => {
+    const slugPath = getSlugPathFromFile(file);
+    const categorySlug = getCategorySlug(entry.frontmatter ?? {}, slugPath);
+    const slug = getArticleSlug(slugPath);
+    return slug === artykul.slug && categorySlug === artykul.categorySlug;
+  });
+  if (matchedEntry) {
+    const [file] = matchedEntry;
+    try {
+      const raw = readFileSync(toFsPath(file), "utf-8");
+      readingTime = formatReadingTime(countWords(raw));
+    } catch {
+      readingTime = null;
+    }
+  }
+}
 const allArticles = Object.entries(allArticleEntries).map(([file, entry]) => {
   const slugPath = getSlugPathFromFile(file);
   const categorySlug = getCategorySlug(entry.frontmatter ?? {}, slugPath);

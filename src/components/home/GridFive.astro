@@ -1,6 +1,8 @@
 ﻿---
 import { Image } from "astro:assets";
+import adImage from "../../assets/images/advertise/ad-8.png";
 import { slugifyTitle } from "../../lib/slugifyTitle";
+import BanerFive from "./BanerFive.astro";
 
 const imageEntries = import.meta.glob("/src/content/artykuly/img/**/*", { eager: true });
 const resolveArticleImage = (path) => {
@@ -68,58 +70,75 @@ const formatDate = (value) =>
 const getPostUrl = (post) => `/artykuly/${post.categorySlug}/${post.slug}/`;
 ---
 
-<div class="pb-20 pt-18 bg-white">
+<div class="pb-4 pt-18 bg-white">
   <div class="relative flex items-center mb-8 border-b border-gray-400 pb-4">
   <div class="absolute -left-4 h-10 w-10 rounded-sm bg-[var(--accent2)]"></div>
   
     <h2 class="text-2xl font-semibold text-gray-900 uppercase z-9">{TARGET_CATEGORY}</h2>
 </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    {posts.map((post) => {
-      const image = resolveArticleImage(post.tileImage ?? post.thumbnail);
-      const dateLabel = post.date ? formatDate(post.date) : null;
-      return (
-        <a class="group cursor-pointer" href={getPostUrl(post)}>
-          <div class="relative overflow-hidden rounded-sm mb-4 aspect-[4/3]">
-            {image ? (
-              <Image
-                src={image}
-                alt={post.title ?? post.slug}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                widths={[320, 480]}
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                loading="lazy"
-              />
-            ) : (
-              <div class="w-full h-full bg-neutral-200"></div>
-            )}
-          </div>
+  <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 flex flex-col gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => {
+          const image = resolveArticleImage(post.tileImage ?? post.thumbnail);
+          const dateLabel = post.date ? formatDate(post.date) : null;
+          return (
+            <a class="group cursor-pointer" href={getPostUrl(post)}>
+              <div class="relative overflow-hidden rounded-sm mb-4 aspect-[4/3]">
+                {image ? (
+                  <Image
+                    src={image}
+                    alt={post.title ?? post.slug}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    widths={[320, 480]}
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-neutral-200"></div>
+                )}
+              </div>
 
-          <div class="flex flex-col gap-2">
-            <h3 class="text-lg font-semibold text-gray-900 leading-tight group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-              {post.title ?? post.slug}
-            </h3>
-            {post.description ? (
-              <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                {post.description}
-              </p>
-            ) : null}
+              <div class="flex flex-col gap-2">
+                <h3 class="text-lg font-semibold text-gray-900 leading-tight group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                  {post.title ?? post.slug}
+                </h3>
+                {post.description ? (
+                  <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                    {post.description}
+                  </p>
+                ) : null}
 
-            <div class="flex justify-between items-center mt-2 text-[11px] text-gray-400 font-medium">
-              {dateLabel ? (
-                <span class="flex items-center gap-1.5 uppercase tracking-wide">
-                  {dateLabel}
-                </span>
-              ) : (
-                <span></span>
-              )}
-              <span class="text-xs font-semibold uppercase text-[var(--accent)]">Czytaj</span>
-            </div>
-          </div>
-        </a>
-      );
-    })}
+                <div class="flex justify-between items-center mt-2 text-[11px] text-gray-400 font-medium">
+                  {dateLabel ? (
+                    <span class="flex items-center gap-1.5 uppercase tracking-wide">
+                      {dateLabel}
+                    </span>
+                  ) : (
+                    <span></span>
+                  )}
+                  <span class="text-xs font-semibold uppercase text-[var(--accent)]">Czytaj</span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+      <BanerFive />
+    </div>
+
+    <aside class="lg:w-72 xl:w-80 shrink-0">
+      <div class="sticky top-38">
+        <Image
+          src={adImage}
+          alt="Reklama"
+          class="w-full h-auto rounded-sm border border-gray-100 shadow-sm"
+          sizes="(min-width: 1024px) 20rem, 100vw"
+          loading="lazy"
+        />
+      </div>
+    </aside>
   </div>
 </div>
 
