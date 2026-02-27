@@ -76,7 +76,7 @@ const getPostUrl = (post) => `/artykuly/${post.categorySlug}/${post.slug}/`;
 </div>
 
   {posts.length ? (
-    <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-4 h-auto md:h-[500px]">
+    <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-6 h-auto md:h-[500px]">
       {featured ? (
         <a class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-md cursor-pointer" href={getPostUrl(featured)}>
           {resolveArticleImage(featured.tileImage ?? featured.thumbnail) ? (
