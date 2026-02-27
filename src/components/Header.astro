@@ -215,7 +215,7 @@ const latestByCategory = posts.reduce((acc, post) => {
 
 const getCategorySlugFromHref = (href) => href.replace(/^\/|\/$/g, "");
 const getLatestForItem = (item) => latestByCategory[getCategorySlugFromHref(item.href)] ?? null;
-const getPostsForItem = (item, limit = 5) =>
+const getPostsForItem = (item, limit = 3) =>
   posts.filter((post) => post.categorySlug === getCategorySlugFromHref(item.href)).slice(0, limit);
 
 const megaDefaultImage = "/content/media/596544842_4121024138044289_7913730695831938647_n.jpg";
@@ -227,7 +227,7 @@ const linkClass = (href) =>
 ---
 
 <header class="fixed left-0 right-0 top-0 z-500 bg-white/95">
-  <div class="mx-auto max-w-[1420px] px-4">
+  <div class="mx-auto max-w-[1420px] px-4 sm:px-10 lg:px-12">
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 space-between items-center py-2">
       <div>
         <a href="/" class="text-xl font-semibold tracking-tighter text-black no-underline" aria-label="Logo">
@@ -324,14 +324,14 @@ const linkClass = (href) =>
                         ))
                       }
                       <section>
-                        <p class="mega-col-title">Wpisy z dzialu</p>
+                        <p class="mega-col-title">Wpisy z działu</p>
                         <ul>
                           {
                             relatedPosts.length > 0
                               ? relatedPosts.map((post) => (
                                   <li>
                                     <a href={`/artykuly/${post.categorySlug}/${post.slug}/`}>
-                                      <span class="mega-link-label text-[12px] font-semibold">
+                                      <span class="mega-link-label text-[13px] font-medium">
                                         {post.title ?? "Bez tytulu"}
                                       </span>
                                       <span class="mega-link-meta">
@@ -552,7 +552,6 @@ const linkClass = (href) =>
 
   .mega-link-label {
     display: block;
-    text-transform: uppercase;
     line-height: 1.3;
     letter-spacing: 1px;
   }
