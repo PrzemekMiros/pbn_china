@@ -5,7 +5,7 @@ author: Przemek
 date: 2026-02-27T14:02:07.102Z
 category:
  - Poradniki i technika jazdy
-thumbnail: /content/artykuly/img/hamowanie-rekuperacyjne-w-chinskich-elektrykach-jak-jezdzic-oszczedniej-i-zdrowiej.png
+thumbnail: /content/artykuly/img/rekuperacja.webp
 ---
 Hamowanie rekuperacyjne to jeden z kluczowych elementów, który odróżnia samochody elektryczne od aut spalinowych. W przypadku marek z Chin – takich jak BYD, MG, NIO, XPeng czy Geely – systemy odzyskiwania energii są często zaawansowane, konfigurowalne i silnie zintegrowane z oprogramowaniem pojazdu.
 

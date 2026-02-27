@@ -215,6 +215,8 @@ const latestByCategory = posts.reduce((acc, post) => {
 
 const getCategorySlugFromHref = (href) => href.replace(/^\/|\/$/g, "");
 const getLatestForItem = (item) => latestByCategory[getCategorySlugFromHref(item.href)] ?? null;
+const getPostsForItem = (item, limit = 5) =>
+  posts.filter((post) => post.categorySlug === getCategorySlugFromHref(item.href)).slice(0, limit);
 
 const megaDefaultImage = "/content/media/596544842_4121024138044289_7913730695831938647_n.jpg";
 
@@ -273,6 +275,7 @@ const linkClass = (href) =>
         {
           navItems.map((item) => {
             const featuredPost = getLatestForItem(item);
+            const relatedPosts = getPostsForItem(item);
             const featuredEyebrow = toCategoryLabel(featuredPost) ?? item.featured.eyebrow ?? item.label;
             const featuredTitle = featuredPost?.title ?? item.featured.title;
             const featuredHref = featuredPost
@@ -320,6 +323,37 @@ const linkClass = (href) =>
                           </section>
                         ))
                       }
+                      <section>
+                        <p class="mega-col-title">Wpisy z dzialu</p>
+                        <ul>
+                          {
+                            relatedPosts.length > 0
+                              ? relatedPosts.map((post) => (
+                                  <li>
+                                    <a href={`/artykuly/${post.categorySlug}/${post.slug}/`}>
+                                      <span class="mega-link-label text-[12px] font-semibold">
+                                        {post.title ?? "Bez tytulu"}
+                                      </span>
+                                      <span class="mega-link-meta">
+                                        {post._date
+                                          ? post._date.toLocaleDateString('pl-PL', {
+                                              year: 'numeric',
+                                              month: '2-digit',
+                                              day: '2-digit'
+                                            })
+                                          : ""}
+                                      </span>
+                                    </a>
+                                  </li>
+                                ))
+                              : (
+                                  <li>
+                                    <span class="mega-link-meta">Brak wpisow</span>
+                                  </li>
+                                )
+                          }
+                        </ul>
+                      </section>
                       <aside class="mega-featured">
                         <img
                           src={featuredImageSrc}
@@ -462,7 +496,7 @@ const linkClass = (href) =>
 
   .mega-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(280px, 1.35fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(280px, 1.35fr);
     gap: 1.8rem;
     align-items: stretch;
   }

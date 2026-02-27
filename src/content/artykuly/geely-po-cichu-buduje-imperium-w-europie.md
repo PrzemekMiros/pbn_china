@@ -5,7 +5,7 @@ author: Przemek
 date: 2026-02-27T14:25:08.521Z
 category:
  - Producenci
-thumbnail: /content/artykuly/img/geely-po-cichu-buduje-imperium-w-europie.png
+thumbnail: /content/artykuly/img/geely.webp
 ---
 Jeszcze dekadę temu Geely było w Europie egzotyczną ciekawostką. Dziś to jeden z najbardziej wpływowych graczy w globalnej motoryzacji, choć przeciętny kierowca może nie kojarzyć tej nazwy. Paradoks polega na tym, że koncern z Hangzhou wcale nie musi eksponować swojego logo, aby realnie kształtować europejski rynek.
 
