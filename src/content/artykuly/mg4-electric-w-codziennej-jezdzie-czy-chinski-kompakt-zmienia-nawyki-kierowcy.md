@@ -1,11 +1,11 @@
 ---
 title: MG4 Electric w codziennej jeździe czy chiński kompakt zmienia nawyki kierowcy
- description: Szczegółowy test MG4 Electric w realnym użytkowaniu. Sprawdzamy komfort, zasięg, koszty i to, jak elektryczny kompakt z Chin wpływa na styl jazdy i decyzje kierowcy.
- author: Przemek
- date: 2026-03-11T21:07:34.833Z
- category:
+description: Szczegółowy test MG4 Electric w realnym użytkowaniu. Sprawdzamy komfort, zasięg, koszty i to, jak elektryczny kompakt z Chin wpływa na styl jazdy i decyzje kierowcy.
+author: Przemek
+date: 2026-03-11T21:07:34.833Z
+category:
   - Testy i opinie
- thumbnail: /content/artykuly/img/mg4-electric-w-codziennej-jezdzie-czy-chinski-kompakt-zmienia-nawyki-kierowcy.png
+thumbnail: /content/artykuly/img/mg4-electric-w-codziennej-jezdzie-czy-chinski-kompakt-zmienia-nawyki-kierowcy.png
 ---
 MG4 Electric nie próbuje już nikogo przekonać, że „jak na chińskie auto” jest dobre. Ono chce być po prostu dobrym samochodem. Bez taryfy ulgowej. W tym teście przyglądam się wersji z baterią 64 kWh w typowym, miejskim i podmiejskim użytkowaniu – bez laboratoryjnych warunków i bez jazdy „na rekord”.
 
